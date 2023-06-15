@@ -221,11 +221,9 @@ class api:
 
         if json["success"]:
             self.__load_user_data(json["info"])
-            print("Successfully logged in with license")
+            return True
         else:
-            print(json["message"])
-            time.sleep(3)
-            os._exit(1)
+            return False
 
     def var(self, name):
         self.checkinit()
