@@ -5,6 +5,11 @@ import binascii  # hex encoding
 from uuid import uuid4  # gen random guid
 import platform  # check platform
 import subprocess  # needed for mac device
+import win32security  # get sid (WIN only)
+import requests  # https requests
+from Crypto.Cipher import AES
+from Crypto.Hash import SHA256
+from Crypto.Util.Padding import pad, unpad
 
 try:  # Connection check
     s = requests.Session()  # Session
