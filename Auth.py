@@ -6,26 +6,6 @@ from uuid import uuid4  # gen random guid
 import platform  # check platform
 import subprocess  # needed for mac device
 
-try:
-    if os.name == 'nt':
-        import win32security  # get sid (WIN only)
-    import requests  # https requests
-    from Crypto.Cipher import AES
-    from Crypto.Hash import SHA256
-    from Crypto.Util.Padding import pad, unpad
-except ModuleNotFoundError:
-    print("Exception when importing modules")
-    print("Installing necessary modules....")
-    if os.path.isfile("requirements.txt"):
-        os.system("pip install -r requirements.txt")
-    else:
-        os.system("pip install pywin32")
-        os.system("pip install pycryptodome")
-        os.system("pip install requests")
-    print("Modules installed!")
-    time.sleep(1.5)
-    os._exit(1)
-
 try:  # Connection check
     s = requests.Session()  # Session
     s.get('https://google.com')
